@@ -20,13 +20,13 @@ int _myhistory(infop *i)
  */
 int unset_alias(infop *i, char *c)
 {
-	char *n, m = 0;
+	char *n, m;
 	int t;
 
 	n = _strchr(c, '=');
 	if (!n)
 		return (1);
-	*c = *n;
+	m = *n;
 	*n = 0;
 	t = delete_node_at_index(&(i->ai),
 		get_node_index(i->ai, node_starts_with(i->ai, c, -1)));
