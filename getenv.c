@@ -9,7 +9,7 @@ char **get_environ(infop *i)
 {
 	if (!i->envi || i->chang_ev)
 	{
-		i->envi = list_to_strings(i->vn);
+		i->envi = node_lo_strings(i->vn);
 		i->chang_ev = 0;
 	}
 

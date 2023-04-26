@@ -77,6 +77,6 @@ int _putsfd(char *y, int im)
 	{
 		n += _putfd(*y++, im);
 	}
-	return (y);
+	return (n);
 }
 

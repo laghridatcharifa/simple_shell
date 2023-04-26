@@ -59,7 +59,7 @@ int _myunsetenv(infop *i)
 {
 	int a;
 
-	if (i->ar == 1)
+	if (i->ac == 1)
 	{
 		_eputs("Too few arguements.\n");
 		return (1);
