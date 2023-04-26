@@ -26,7 +26,7 @@ int unset_alias(infop *i, char *c)
 	n = _strchr(c, '=');
 	if (!n)
 		return (1);
-	c = *n;
+	*c = *n;
 	*n = 0;
 	t = delete_node_at_index(&(i->ai),
 		get_node_index(i->ai, node_starts_with(i->ai, c, -1)));
@@ -89,7 +89,7 @@ int _myalias(infop *i)
 	char *c = NULL;
 	node_l *n = NULL;
 
-	if (i->ar == 1)
+	if (i->ac == 1)
 	{
 		n = i->ai;
 		while (n)
@@ -99,7 +99,7 @@ int _myalias(infop *i)
 		}
 		return (0);
 	}
-	for (ii = 1; i-> ar[ii]; ii++)
+	for (ii = 1; i->ar[ii]; ii++)
 	{
 		c = _strchr(i->ar[ii], '=');
 		if (c)
