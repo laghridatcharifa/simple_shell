@@ -18,7 +18,7 @@ int _erratoi(char *ha)
 		{
 			re *= 10;
 			re += (ha[ii] - '0');
-			if (return > INT_MAX)
+			if (re > INT_MAX)
 				return (-1);
 		}
 		else
@@ -56,17 +56,17 @@ int print_d(int pt, int yn)
 	int x, c = 0;
 	unsigned int test, cr;
 
-	if (yd == STDERR_FILENO)
+	if (yn == STDERR_FILENO)
 		__putchar = _eputchar;
 	if (pt < 0)
 	{
 		test = -pt;
 		__putchar('-');
-		count++;
+		c++;
 	}
 	else
 		test = pt;
-	cr = _abs_;
+	cr = test;
 	for (x = 1000000000; x > 1; x /= 10)
 	{
 		if (test / x)
@@ -114,7 +114,7 @@ char *convert_number(long int n, int e, int s)
 	} while (i != 0);
 
 	if (g)
-		*--rt = g;
+		*--tr = g;
 	return (tr);
 }
 
@@ -127,7 +127,7 @@ void remove_comments(char *b)
 {
 	int ii;
 
-	for (ii = 0; b[i] != '\0'; ii++)
+	for (ii = 0; b[ii] != '\0'; ii++)
 		if (b[ii] == '#' && (!ii || b[ii - 1] == ' '))
 		{
 			b[ii] = '\0';
