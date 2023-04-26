@@ -19,12 +19,12 @@ size_t list_len(const node_l *h)
 }
 
 /**
- * list_to_strings - returns an array
+ * node_lo_strings - returns an array
  * @head: pointer to first node
  *
  * Return: array of strings
  */
-char **list_to_strings(node_l *head)
+char **node_lo_strings(node_l *head)
 {
 	node_l *node = head;
 	size_t i = list_len(head), j;

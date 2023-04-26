@@ -1,6 +1,39 @@
 #include "shell.h"
 
 /**
+ * find_builtin - finds a builtin
+ * @info: the parameter & return info struct
+ *
+ * Return: -1 if builtin not found,
+ * 0 if builtin executed successfully,
+ * 1 if builtin found but not successful,
+ * 2 if builtin signals exit()
+ */
+int find_builtin(infop *info)
+{
+        int i, built = -1;
+        tableb builtintbl[] = {
+                {"exit", _myexit},
+                {"env", _myenv},
+                {"help", _myhelp},
+                {"history", _myhistory},
+                {"setenv", _mysetenv},
+                {"unsetenv", _myunsetenv},
+                {"cd", _mycd},
+                {"alias", _myalias},
+                {NULL, NULL}
+        };
+
+        for (i = 0; builtintbl[i].t; i++)
+                if (_strcmp(info->ar[0], builtintbl[i].t) == 0)
+                {
+                        info->lc++;
+                        built = builtintbl[i].fu(info);
+                        break;
+                }
+        return (built);
+}
+/**
  * hsh - main shell
  * @info: the parameter & return info struct
  * @av: the argument vector from main()
@@ -43,39 +76,6 @@ int hsh(infop *info, char **av)
 	return (builtin);
 }
 
-/**
- * find_builtin - finds a builtin
- * @info: the parameter & return info struct
- *
- * Return: -1 if builtin not found,
- * 0 if builtin executed successfully,
- * 1 if builtin found but not successful,
- * 2 if builtin signals exit()
- */
-int find_builtin(infop *info)
-{
-	int i, built = -1;
-	tableb builtintbl[] = {
-		{"exit", _myexit},
-		{"env", _myenv},
-		{"help", _myhelp},
-		{"history", _myhistory},
-		{"setenv", _mysetenv},
-		{"unsetenv", _myunsetenv},
-		{"cd", _mycd},
-		{"alias", _myalias},
-		{NULL, NULL}
-	};
-
-	for (i = 0; builtintbl[i].t; i++)
-		if (_strcmp(info->ar[0], builtintbl[i].t) == 0)
-		{
-			info->lc++;
-			built = builtintbl[i].fu(info);
-			break;
-		}
-	return (built);
-}
 
 /**
  * find_cmd - finds a command
