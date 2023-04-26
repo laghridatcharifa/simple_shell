@@ -3,7 +3,6 @@
 /**
  * find_builtin - finds a builtin
  * @info: the parameter & return info struct
- *
  * Return: -1 if builtin not found,
  * 0 if builtin executed successfully,
  * 1 if builtin found but not successful,
@@ -38,7 +37,6 @@ int find_builtin(infop *info)
  * hsh - main shell
  * @info: the parameter & return info struct
  * @av: the argument vector from main()
- *
  * Return: 0 on success, 1 on error, or error code
  */
 int hsh(infop *info, char **av)
@@ -80,7 +78,6 @@ int hsh(infop *info, char **av)
 /**
  * find_cmd - finds a command
  * @info: the parameter & return info struct
- *
  * Return: void
  */
 void find_cmd(infop *info)
